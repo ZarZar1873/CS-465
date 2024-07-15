@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 // Variable for the router.get below
-var controller = require('../controllers/travel');
+var controller = require('../controllers/about');
 
-/* GET travel page. */
+/* GET about page. */
 // Route for the travlr controller
-router.get('/', controller.travel);
+router.get('/', controller.about);
 
 module.exports = router;

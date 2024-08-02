@@ -1,10 +1,8 @@
 // Add mongoose to requirements  and save to exportable varaible
 const mongoose = require('mongoose');
 
-const host = process.env.DB_HOST || '127.0.0.1';
-
 // create connection to mongodb through travlr
-const dbURI = `mongodb://${host}/travlr`;
+const dbURI = 'mongodb://localhost:27017/travlr';
 
 const readLine = require('readline');
 
@@ -75,4 +73,5 @@ connect();
 
 // Import Mongoose schema
 require('./travlr');
+
 module.exports = mongoose;

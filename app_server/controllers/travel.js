@@ -42,7 +42,7 @@ const travel = async function(req, res, next) {
             // message is the error message to be displayed
             res.render('travel', {title: 'Travlr Getaways', trips: json, message}) 
         })
-        .catch(err => res.status(500).send(e.message)); // tags any errors in the communication with the api
+        .catch(error => res.status(500).send(error.message)); // tags any errors in the communication with the api
         // console.log('TRAVEL CONTROLLER AFTER RENDER');
 };
 

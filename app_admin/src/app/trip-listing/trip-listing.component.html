@@ -1,0 +1,14 @@
+<!-- Add trips array to the class file to make the variable accessible from within the HTML -->
+<!-- <pre>{{ trips | json }}</pre> -->
+<div>
+    <!-- Button for adding trips -->
+    <button (click)="addTrip()" class="btn btn-info">Add Trip</button>
+
+<div class="row">
+    <!-- Angular for-loop -->
+     <!-- Bootstrap for each card will consume 4 of 12 columns on a med or large screen and wrap vertically -->
+    <div *ngFor="let trip of trips" class="col-md-4">
+        <!-- Code that replaces rendering code now found in trip-card.component.html -->
+        <app-trip-card [trip]="trip" class="card-deck mt-2"></app-trip-card>
+    </div>
+</div>

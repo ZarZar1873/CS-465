@@ -12,7 +12,7 @@ const tripsList = async(req, res) => {
         .find({}) // No filter, return all records
         .exec();
 
-        console.log(q); // Comment line to hide results of the querey
+        //console.log(q); // Comment line to hide results of the querey
     
     if(!q){ // Database returned no data
         return res

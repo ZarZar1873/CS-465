@@ -16,8 +16,15 @@ var aboutRouter = require('./app_server/routes/about');
 var contactRouter = require('./app_server/routes/contact');
 var handlebars = require('hbs');
 
+// Wire in our authentication module
+var passport = require('passport');
+require('./app_api/config/passport');
+
 // Bring in the database
 require('./app_api/models/db')
+
+// Bring in the dotenv module and teh config method reads teh .env file containing secret
+require('dotenv').config();
 
 var app = express();
 
@@ -35,6 +42,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
 
 // Enable Cross Origin Resource Sharing (CORS) to allow for external calls
 app.use('/api', (req, res, next) => {
@@ -63,6 +71,15 @@ app.use('/news', newsRouter);
 app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 app.use('/api', apiRouter); // Wire-up API routes
+
+// Catch unauthorized error and create 401
+app.use((err, req, res, next) => {
+  if(err.name === 'UnauthorizedError') {
+    res
+      .status(401)
+      .json({"message": err.name + ": " + err.message});
+  }
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -24,3 +24,4 @@ In this full stack application the methods for the HTTP that are utilized are ge
 Reflection
 How has this course helped you in reaching your professional goals? What skills have you learned, developed, or mastered in this course to help you become a more marketable candidate in your career field?
 My professional goal is to become a software developer, so doing a project like this that involves starting with a basic or relatively blank project and turning it into a full stack application is exactly the kind of experience I need. During this course I have increased my ability to debug code, follow instructions and guides, use code templates to make my own code (in the form of following turning the static travels page into a template with JSON to turn the other pages into tempates), and I have learned to use MongoDB, Express, Angular, and Node to create a MEAN full stack application.
+------------------------
